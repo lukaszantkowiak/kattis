@@ -1,6 +1,4 @@
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.io.OutputStream;
+import static org.assertj.core.api.StrictAssertions.assertThat;
 
 import org.junit.Test;
 
@@ -19,14 +17,14 @@ public class BabelfishTest extends AbstractTest {
 		in.append("ittenkay").append(NEW_LINE);
 		in.append("oopslay").append(NEW_LINE);
 
-		OutputStream os = execute(in);
+		String out = execute(in);
 
-		StringBuilder out = new StringBuilder();
-		out.append("cat").append(NEW_LINE);
-		out.append("eh").append(NEW_LINE);
-		out.append("loops");
+		StringBuilder expected = new StringBuilder();
+		expected.append("cat").append(NEW_LINE);
+		expected.append("eh").append(NEW_LINE);
+		expected.append("loops");
 
-		assertThat(os.toString()).isEqualTo(out.toString());
+		assertThat(out).isEqualTo(expected.toString());
 	}
 
 	@Override

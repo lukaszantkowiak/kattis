@@ -1,7 +1,5 @@
 import static org.assertj.core.api.StrictAssertions.assertThat;
 
-import java.io.OutputStream;
-
 import org.junit.Test;
 
 public class CarGameTest extends AbstractTest {
@@ -19,14 +17,14 @@ public class CarGameTest extends AbstractTest {
 		in.append("DNA").append(NEW_LINE);
 		in.append("SND").append(NEW_LINE);
 		
-		OutputStream out = execute(in);
+		String out = execute(in);
 		
 		StringBuilder expected = new StringBuilder();
 		expected.append("counterrevolutionaries").append(NEW_LINE);
 		expected.append("No valid word").append(NEW_LINE);
 		expected.append("sand");
 		
-		assertThat(out.toString()).isEqualTo(expected.toString());
+		assertThat(out).isEqualTo(expected.toString());
 	}
 
 	@Override

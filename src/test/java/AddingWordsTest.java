@@ -1,5 +1,3 @@
-import java.io.OutputStream;
-
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
@@ -19,7 +17,7 @@ public class AddingWordsTest extends AbstractTest {
 		in.append("calc programming - is + fun =").append(NEW_LINE);
 		in.append("clear");
 
-		OutputStream os = execute(in);
+		String os = execute(in);
 
 		StringBuilder out = new StringBuilder();
 		out.append("foo + bar = unknown").append(NEW_LINE);
@@ -27,7 +25,7 @@ public class AddingWordsTest extends AbstractTest {
 		out.append("programming - is + fun = unknown").append(NEW_LINE);
 		out.append("programming - is + fun = bar");
 		
-		Assertions.assertThat(os.toString().replace(Character.valueOf((char)13).toString(), "")).isEqualTo(out.toString());
+		Assertions.assertThat(os.replace(Character.valueOf((char)13).toString(), "")).isEqualTo(out.toString());
 	}
 
 	@Override

@@ -1,5 +1,3 @@
-import java.io.OutputStream;
-
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
@@ -21,7 +19,7 @@ public class AdministrativeDifficultiesTest extends AbstractTest {
 		in.append("60 mallory r 100").append(NEW_LINE);
 		in.append("110 silva a 30").append(NEW_LINE);
 
-		OutputStream os = execute(in);
+		String os = execute(in);
 
 		StringBuilder out = new StringBuilder();
 		out.append("badluckbrian INCONSISTENT").append(NEW_LINE);
@@ -29,7 +27,7 @@ public class AdministrativeDifficultiesTest extends AbstractTest {
 		out.append("mallory 1650").append(NEW_LINE);
 		out.append("silva INCONSISTENT");
 		
-		Assertions.assertThat(os.toString()).isEqualTo(out.toString());
+		Assertions.assertThat(os).isEqualTo(out.toString());
 	}
 
 	@Override

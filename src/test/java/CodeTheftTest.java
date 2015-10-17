@@ -1,11 +1,6 @@
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
-
-import java.io.OutputStream;
+import static org.assertj.core.api.StrictAssertions.assertThat;
 
 import org.junit.Test;
-
-
 
 public class CodeTheftTest extends AbstractTest {
 
@@ -30,12 +25,12 @@ public class CodeTheftTest extends AbstractTest {
 		in.append("  printf(\"THE END\\n\");").append(NEW_LINE);
 		in.append("}").append(NEW_LINE);
 		in.append("***END***").append(NEW_LINE);
-		
-		OutputStream out = execute(in);
-		
-		assertThat(out.toString()).isEqualTo("2 HelloWorld.c");
+
+		String out = execute(in);
+
+		assertThat(out).isEqualTo("2 HelloWorld.c");
 	}
-	
+
 	@Test
 	public void testCase2() throws Exception {
 		StringBuilder in = new StringBuilder();
@@ -60,12 +55,12 @@ public class CodeTheftTest extends AbstractTest {
 		in.append("40 PRINT \"*******************\"").append(NEW_LINE);
 		in.append("50 END").append(NEW_LINE);
 		in.append("***END***").append(NEW_LINE);
-		
-		OutputStream out = execute(in);
-		
-		assertThat(out.toString()).isEqualTo("3 HelloWorld1.bas HelloWorld2.bas");
+
+		String out = execute(in);
+
+		assertThat(out).isEqualTo("3 HelloWorld1.bas HelloWorld2.bas");
 	}
-	
+
 	@Override
 	protected Class<?> getTestClass() {
 		return CodeTheft.class;

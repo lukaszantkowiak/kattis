@@ -1,5 +1,3 @@
-import java.io.OutputStream;
-
 import org.assertj.core.api.Assertions;
 import org.assertj.core.data.Offset;
 import org.junit.Test;
@@ -14,9 +12,9 @@ public class A1PaperTest extends AbstractTest{
 		in.append("4").append(NEW_LINE);
 		in.append("1 0 5");
 
-		OutputStream os = execute(in);
+		String os = execute(in);
 
-		double result = Double.parseDouble(os.toString().trim());
+		double result = Double.parseDouble(os);
 		double expected = 1.60965532263;
 
 		Assertions.assertThat(result).isEqualTo(expected, EPS);
@@ -28,7 +26,7 @@ public class A1PaperTest extends AbstractTest{
 		in.append("3").append(NEW_LINE);
 		in.append("0 3");
 
-		OutputStream os = execute(in);
+		String os = execute(in);
 
 		String result = os.toString().trim();
 		String expected = "impossible";

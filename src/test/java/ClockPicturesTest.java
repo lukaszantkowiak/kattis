@@ -1,6 +1,4 @@
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.io.OutputStream;
+import static org.assertj.core.api.StrictAssertions.assertThat;
 
 import org.junit.Test;
 
@@ -13,9 +11,9 @@ public class ClockPicturesTest extends AbstractTest {
 		in.append("1 2 3 4 5 6").append(NEW_LINE);
 		in.append("7 6 5 4 3 1").append(NEW_LINE);
 
-		OutputStream out = execute(in);
+		String out = execute(in);
 
-		assertThat(out.toString()).isEqualTo("impossible");
+		assertThat(out).isEqualTo("impossible");
 	}
 
 	@Test
@@ -25,9 +23,9 @@ public class ClockPicturesTest extends AbstractTest {
 		in.append("0 270000").append(NEW_LINE);
 		in.append("180000 270000").append(NEW_LINE);
 
-		OutputStream out = execute(in);
+		String out = execute(in);
 
-		assertThat(out.toString()).isEqualTo("possible");
+		assertThat(out).isEqualTo("possible");
 	}
 
 	@Test
@@ -37,9 +35,9 @@ public class ClockPicturesTest extends AbstractTest {
 		in.append("140 130 110 120 125 100 105").append(NEW_LINE);
 		in.append("235 205 215 220 225 200 240").append(NEW_LINE);
 
-		OutputStream out = execute(in);
+		String out = execute(in);
 
-		assertThat(out.toString()).isEqualTo("impossible");
+		assertThat(out).isEqualTo("impossible");
 	}
 
 	@Override

@@ -1,11 +1,7 @@
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.io.OutputStream;
+import static org.assertj.core.api.StrictAssertions.assertThat;
 
 import org.junit.Ignore;
 import org.junit.Test;
-
-
 
 public class CDTest extends AbstractTest {
 
@@ -21,10 +17,10 @@ public class CDTest extends AbstractTest {
 		in.append("2").append(NEW_LINE);
 		in.append("4").append(NEW_LINE);
 		in.append("0 0").append(NEW_LINE);
-		
-		OutputStream out = execute(in);
-		
-		assertThat(Integer.parseInt(out.toString())).isEqualTo(2);
+
+		String out = execute(in);
+
+		assertThat(Integer.parseInt(out)).isEqualTo(2);
 	}
 
 	@Test
@@ -43,10 +39,10 @@ public class CDTest extends AbstractTest {
 		in.append("3").append(NEW_LINE);
 		in.append("1").append(NEW_LINE);
 		in.append("0 0").append(NEW_LINE);
-		
-		OutputStream out = execute(in);
-		
-		assertThat(out.toString()).isEqualTo("2\n1");
+
+		String out = execute(in);
+
+		assertThat(out).isEqualTo("2\n1");
 	}
 
 	@Test
@@ -63,12 +59,12 @@ public class CDTest extends AbstractTest {
 		in.append("3").append(NEW_LINE);
 		in.append("1").append(NEW_LINE);
 		in.append("0 0").append(NEW_LINE);
-		
-		OutputStream out = execute(in);
-		
-		assertThat(out.toString()).isEqualTo("0\n1");
+
+		String out = execute(in);
+
+		assertThat(out).isEqualTo("0\n1");
 	}
-	
+
 	@Override
 	protected Class<?> getTestClass() {
 		return CD.class;

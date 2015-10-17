@@ -1,7 +1,5 @@
 import static org.assertj.core.api.StrictAssertions.assertThat;
 
-import java.io.OutputStream;
-
 import org.assertj.core.data.Offset;
 import org.junit.Test;
 
@@ -17,9 +15,9 @@ public class BilliardTest extends AbstractTest {
 		in.append("201 132 48 1900 156").append(NEW_LINE);
 		in.append("0 0 0 0 0").append(NEW_LINE);
 		
-		OutputStream os = execute(in);
+		String out = execute(in);
 		
-		String[] results = os.toString().split(NEW_LINE);
+		String[] results = out.toString().split(NEW_LINE);
 		
 		assertThat(results).hasSize(3);
 		String[] line1 = results[0].split(" ");

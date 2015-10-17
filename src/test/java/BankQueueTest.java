@@ -1,7 +1,5 @@
 import static org.assertj.core.api.StrictAssertions.assertThat;
 
-import java.io.OutputStream;
-
 import org.junit.Test;
 
 public class BankQueueTest extends AbstractTest {
@@ -15,9 +13,9 @@ public class BankQueueTest extends AbstractTest {
 		in.append("500 2").append(NEW_LINE);
 		in.append("1200 0").append(NEW_LINE);
 
-		OutputStream os = execute(in);
+		String out = execute(in);
 
-		assertThat(Integer.parseInt(os.toString())).isEqualTo(4200);
+		assertThat(Integer.parseInt(out)).isEqualTo(4200);
 	}
 
 	@Test
@@ -28,9 +26,9 @@ public class BankQueueTest extends AbstractTest {
 		in.append("2000 1").append(NEW_LINE);
 		in.append("500 1").append(NEW_LINE);
 
-		OutputStream os = execute(in);
+		String out = execute(in);
 
-		assertThat(Integer.parseInt(os.toString())).isEqualTo(3000);
+		assertThat(Integer.parseInt(out)).isEqualTo(3000);
 	}
 
 	@Override

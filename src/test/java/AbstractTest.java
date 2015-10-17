@@ -1,4 +1,5 @@
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -13,7 +14,7 @@ public abstract class AbstractTest {
 	protected abstract Class<?> getTestClass();
 
 
-	protected OutputStream execute(StringBuilder in) throws Exception {
+	protected String execute(StringBuilder in) throws Exception {
 		PrintStream out = System.out;
 
 		InputStream stream = new ByteArrayInputStream(in.toString().getBytes(StandardCharsets.UTF_8));
@@ -26,7 +27,7 @@ public abstract class AbstractTest {
 
 		System.setOut(out);
 
-		return os;
+		return os.toString();
 	}
 	
 	private void execute() throws Exception {
@@ -34,5 +35,18 @@ public abstract class AbstractTest {
 		Method m = cls.getMethod("main", String[].class);
 		String[] params = null; 
 		m.invoke(null, (Object) params); 
+	}
+	
+	private static class TestOutputStream extends OutputStream {
+		private StringBuilder string = new StringBuilder();
+
+		@Override
+		public void write(int b) throws IOException {
+			this.string.append((char) b);
+		}
+
+		public String toString() {
+			return this.string.toString().trim().replace(Character.valueOf((char) 13).toString(), "");
+		}
 	}
 }

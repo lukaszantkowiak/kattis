@@ -1,10 +1,6 @@
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.io.OutputStream;
+import static org.assertj.core.api.StrictAssertions.assertThat;
 
 import org.junit.Test;
-
-
 
 public class ClosingTheLoopTest extends AbstractTest {
 
@@ -20,18 +16,18 @@ public class ClosingTheLoopTest extends AbstractTest {
 		in.append("5B 4R 3R 2R 5R 4R 3R").append(NEW_LINE);
 		in.append("2").append(NEW_LINE);
 		in.append("20B 20R").append(NEW_LINE);
-		
-		OutputStream out = execute(in);
-		
+
+		String out = execute(in);
+
 		StringBuilder expected = new StringBuilder();
 		expected.append("Case #1: 0").append(NEW_LINE);
 		expected.append("Case #2: 13").append(NEW_LINE);
 		expected.append("Case #3: 8").append(NEW_LINE);
 		expected.append("Case #4: 38");
 
-		assertThat(out.toString()).isEqualTo(expected.toString());
+		assertThat(out).isEqualTo(expected.toString());
 	}
-	
+
 	@Override
 	protected Class<?> getTestClass() {
 		return ClosingTheLoop.class;

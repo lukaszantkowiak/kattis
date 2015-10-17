@@ -2,34 +2,31 @@ import static org.assertj.core.api.StrictAssertions.assertThat;
 
 import org.junit.Test;
 
-public class CarrotsTest extends AbstractTest {
+public class KornislavTest extends AbstractTest {
 
 	@Test
 	public void testCase1() throws Exception {
 		StringBuilder in = new StringBuilder();
-		in.append("2 1").append(NEW_LINE);
-		in.append("carrots?").append(NEW_LINE);
-		in.append("bunnies").append(NEW_LINE);
+		in.append("1 2 3 4").append(NEW_LINE);
 
 		String out = execute(in);
 
-		assertThat(Integer.parseInt(out)).isEqualTo(1);
+		assertThat(Integer.parseInt(out)).isEqualTo(3);
 	}
 
 	@Test
 	public void testCase2() throws Exception {
 		StringBuilder in = new StringBuilder();
-		in.append("1 5").append(NEW_LINE);
-		in.append("sovl problmz").append(NEW_LINE);
+		in.append("4 4 3 4").append(NEW_LINE);
 
 		String out = execute(in);
 
-		assertThat(Integer.parseInt(out)).isEqualTo(5);
+		assertThat(Integer.parseInt(out)).isEqualTo(12);
 	}
 
 	@Override
 	protected Class<?> getTestClass() {
-		return Carrots.class;
+		return Kornislav.class;
 	}
 
 }

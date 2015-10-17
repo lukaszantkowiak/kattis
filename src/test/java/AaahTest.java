@@ -1,5 +1,3 @@
-import java.io.OutputStream;
-
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
@@ -11,9 +9,9 @@ public class AaahTest extends AbstractTest {
 		in.append("aaah").append(NEW_LINE);
 		in.append("aaaaah");
 
-		OutputStream os = execute(in);
+		String os = execute(in);
 
-		Assertions.assertThat(os.toString()).isEqualTo("no");
+		Assertions.assertThat(os).isEqualTo("no");
 	}
 
 	@Test
@@ -22,9 +20,9 @@ public class AaahTest extends AbstractTest {
 		in.append("aaah").append(NEW_LINE);
 		in.append("ah");
 
-		OutputStream os = execute(in);
+		String os = execute(in);
 
-		Assertions.assertThat(os.toString()).isEqualTo("go");
+		Assertions.assertThat(os).isEqualTo("go");
 	}
 
 	@Override
