@@ -36,15 +36,7 @@ public class SafePassage {
 				int c1 = a.getTime() + 2 * b.getTime() + d.getTime();
 				int c2 = 2 * a.getTime() + c.getTime() + d.getTime();
 
-				if (c1 < c2) {
-					time += a.getTime();
-					time += 2 * b.getTime();
-					time += d.getTime();
-				} else {
-					time += 2 * a.getTime();
-					time += c.getTime();
-					time += d.getTime();
-				}
+				time += Math.min(c1, c2);
 
 				people.remove(c);
 				people.remove(d);
