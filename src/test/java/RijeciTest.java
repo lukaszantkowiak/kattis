@@ -7,7 +7,7 @@ import org.junit.Test;
 public class RijeciTest extends AbstractTest {
 
 	@Test
-	public void testClass1() throws Exception {
+	public void testCase1() throws Exception {
 		StringBuilder in = new StringBuilder();
 		in.append("1").append(NEW_LINE);
 		
@@ -17,7 +17,7 @@ public class RijeciTest extends AbstractTest {
 	}
 
 	@Test
-	public void testClass2() throws Exception {
+	public void testCase2() throws Exception {
 		StringBuilder in = new StringBuilder();
 		in.append("4").append(NEW_LINE);
 		
@@ -27,7 +27,7 @@ public class RijeciTest extends AbstractTest {
 	}
 
 	@Test
-	public void testClass3() throws Exception {
+	public void testCase3() throws Exception {
 		StringBuilder in = new StringBuilder();
 		in.append("10").append(NEW_LINE);
 		
