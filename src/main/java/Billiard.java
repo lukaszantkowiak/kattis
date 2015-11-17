@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 /**
  * Solution for https://open.kattis.com/problems/billiard
  * 
@@ -25,7 +27,7 @@ public class Billiard {
 
 			final double angle = Math.toDegrees(Math.acos(aSide / cSide));
 
-			io.println(String.format("%.2f ", angle) + " " + String.format("%.2f ", cSide / s));
+			io.println(String.format(Locale.US, "%.2f ", angle) + " " + String.format(Locale.US, "%.2f ", cSide / s));
 		}
 
 		io.flush();
