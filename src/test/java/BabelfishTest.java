@@ -31,5 +31,4 @@ public class BabelfishTest extends AbstractTest {
 	protected Class<?> getTestClass() {
 		return Babelfish.class;
 	}
-
 }
