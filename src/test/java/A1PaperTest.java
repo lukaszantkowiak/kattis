@@ -2,12 +2,12 @@ import org.assertj.core.api.Assertions;
 import org.assertj.core.data.Offset;
 import org.junit.Test;
 
-public class A1PaperTest extends AbstractTest{
+public class A1PaperTest extends AbstractTest {
 
 	private static final Offset<Double> EPS = Offset.offset(1e-5);
 
 	@Test
-	public void testCase1()  throws Exception{
+	public void testCase1() throws Exception {
 		StringBuilder in = new StringBuilder();
 		in.append("4").append(NEW_LINE);
 		in.append("1 0 5");
